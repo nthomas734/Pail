@@ -56,6 +56,10 @@ export default function HomePage() {
   }
 
   function handleTouchStart(e: React.TouchEvent) {
+    // Ignore if touch starts inside a horizontally scrollable element
+    const target = e.touches[0].target as HTMLElement;
+    const scrollable = target.closest('[data-swipe-ignore]');
+    if (scrollable) return;
     const t = e.touches[0];
     touchStart.current = { x: t.clientX, y: t.clientY, t: Date.now() };
   }
@@ -68,7 +72,8 @@ export default function HomePage() {
     const dt = Date.now() - touchStart.current.t;
     touchStart.current = null;
 
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5 && dt < 500) {
+    // Tighter thresholds: longer swipe, stricter angle, faster gesture
+    if (Math.abs(dx) > 80 && Math.abs(dx) > Math.abs(dy) * 2.5 && dt < 400) {
       const idx = TAB_ORDER.indexOf(tab);
       if (dx < 0 && idx < TAB_ORDER.length - 1) setTab(TAB_ORDER[idx + 1]);
       if (dx > 0 && idx > 0) setTab(TAB_ORDER[idx - 1]);

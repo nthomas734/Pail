@@ -80,6 +80,7 @@ export function BoardView({
       {/* Filter strip 1: categories */}
       <div
         className="no-scrollbar"
+        data-swipe-ignore
         style={{
           display: 'flex',
           gap: 6,
@@ -108,6 +109,7 @@ export function BoardView({
       {/* Filter strip 2: time/season */}
       <div
         className="no-scrollbar"
+        data-swipe-ignore
         style={{
           display: 'flex',
           gap: 6,

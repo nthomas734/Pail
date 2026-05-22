@@ -80,14 +80,14 @@ export function ItemDetailModal({ item, onClose, onUpdated }: ItemDetailModalPro
       updates.memory_photo = photoUrl;
     }
 
-    await supabase.from('items').update(updates).eq('id', item.id);
+    await supabase.from('pail_items').update(updates).eq('id', item.id);
     setUpdating(false);
     onUpdated();
   }
 
   async function saveMemory() {
     setUpdating(true);
-    await supabase.from('items').update({
+    await supabase.from('pail_items').update({
       memory_note: memoryNote.trim() || null,
       memory_photo: photoUrl
     }).eq('id', item.id);
@@ -114,7 +114,7 @@ export function ItemDetailModal({ item, onClose, onUpdated }: ItemDetailModalPro
 
   async function deleteItem() {
     setUpdating(true);
-    await supabase.from('items').delete().eq('id', item.id);
+    await supabase.from('pail_items').delete().eq('id', item.id);
     setUpdating(false);
     onUpdated();
   }
@@ -131,7 +131,7 @@ export function ItemDetailModal({ item, onClose, onUpdated }: ItemDetailModalPro
     setUpdating(true);
     setEditError(null);
 
-    const { error } = await supabase.from('items').update({
+    const { error } = await supabase.from('pail_items').update({
       title: editTitle.trim(),
       category: editCategory,
       seasons: Array.from(editSeasons),

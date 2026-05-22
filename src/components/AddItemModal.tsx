@@ -76,7 +76,7 @@ export function AddItemModal({ onClose, onAdded }: AddItemModalProps) {
 
     const savedTitle = title.trim();
 
-    const { error: dbError } = await supabase.from('items').insert({
+    const { error: dbError } = await supabase.from('pail_items').insert({
       title: savedTitle,
       category,
       seasons: Array.from(seasons),

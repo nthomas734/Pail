@@ -5,7 +5,11 @@ import { RegisterSW } from '@/components/RegisterSW';
 export const metadata: Metadata = {
   title: 'pail',
   description: 'things to do in chicago before san diego',
-  manifest: '/manifest.json',
+  // v=2 busts iOS/Safari's cached manifest. iOS bakes background_color in
+  // at add-to-home-screen time (it paints the strip under the bottom tab
+  // bar) and reuses a stale cached manifest on re-add — a new URL is the
+  // only guaranteed bust. Bump the query any time manifest.json changes.
+  manifest: '/manifest.json?v=2',
   icons: {
     icon: [
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },

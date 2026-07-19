@@ -4,7 +4,7 @@
   "description": "things to do in chicago before san diego",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1A2D52",
+  "background_color": "#0A0A0A",
   "theme_color": "#1A2D52",
   "orientation": "portrait",
   "icons": [

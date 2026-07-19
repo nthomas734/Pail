@@ -10,6 +10,7 @@ import { TimelineView } from '@/components/TimelineView';
 import { MemoriesView } from '@/components/MemoriesView';
 import { AddItemModal } from '@/components/AddItemModal';
 import { ItemDetailModal } from '@/components/ItemDetailModal';
+import { UpdateBanner } from '@/components/UpdateBanner';
 
 const TAB_ORDER: TabKey[] = ['board', 'roll', 'timeline', 'memories'];
 
@@ -91,6 +92,7 @@ export default function HomePage() {
         paddingTop: 'env(safe-area-inset-top)'
       }}
     >
+      <UpdateBanner />
       <Header />
 
       <div style={{ maxWidth: 520, margin: '0 auto', padding: '0 14px' }}>

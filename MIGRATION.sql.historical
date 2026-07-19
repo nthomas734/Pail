@@ -1,5 +1,27 @@
 -- =====================================================
--- pail v4.1 — schema migration + data fix
+-- ⚠️  DO NOT RUN THIS FILE. HISTORICAL RECORD ONLY.
+-- =====================================================
+-- Renamed from MIGRATION.sql on 2026-07-18 and kept only as history.
+--
+-- Two reasons it cannot be used:
+--   1. Every statement targets a table named `items`. The live table was
+--      renamed to `pail_items` long ago and the app queries only that name.
+--   2. The file contains ONLY `alter table` statements — there is no
+--      `create table` anywhere in it. It assumes the table already exists.
+--
+-- Verified 2026-07-18 against a scratch Supabase project: run against an
+-- empty database it dies on its first statement with
+--   ERROR: 42P01: relation "items" does not exist
+-- and nothing in it is salvageable.
+--
+-- ➜ To build pail's database from empty, run SCHEMA-SYNC.sql instead.
+--   That file was generated from the live schema, builds pail_items with
+--   all 16 columns, defaults, NOT NULLs, RLS and all 3 policies, and was
+--   verified to work from empty. Note the `memories` storage bucket is a
+--   manual dashboard step it cannot create.
+--
+-- =====================================================
+-- pail v4.1 — schema migration + data fix (original header)
 -- =====================================================
 -- Run this entire block in Supabase SQL Editor.
 -- Safe to run multiple times.

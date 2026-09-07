@@ -31,7 +31,12 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: '#1A2D52'
+  themeColor: '#1A2D52',
+  // Required for env(safe-area-inset-*) to be non-zero in the installed iOS
+  // PWA. Without it iOS reports 0, the tab bar's bottom padding collapses,
+  // and its buttons sit in the home-indicator strip (same fix as dashi,
+  // meiro, clip, and stack).
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

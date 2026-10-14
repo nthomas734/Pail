@@ -9,14 +9,14 @@ export const metadata: Metadata = {
   // at add-to-home-screen time (it paints the strip under the bottom tab
   // bar) and reuses a stale cached manifest on re-add — a new URL is the
   // only guaranteed bust. Bump the query any time manifest.json changes.
-  manifest: '/manifest.json?v=2',
+  manifest: '/manifest.json?v=3',
   icons: {
     icon: [
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
       { url: '/icon-512.png', sizes: '512x512', type: 'image/png' }
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+      { url: '/apple-touch-icon.png?v=3', sizes: '180x180', type: 'image/png' }
     ]
   },
   appleWebApp: {

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { RegisterSW } from '@/components/RegisterSW';
+import { ICON_180 } from './icon-data';
 
 export const metadata: Metadata = {
   title: 'pail',
@@ -9,15 +10,13 @@ export const metadata: Metadata = {
   // at add-to-home-screen time (it paints the strip under the bottom tab
   // bar) and reuses a stale cached manifest on re-add — a new URL is the
   // only guaranteed bust. Bump the query any time manifest.json changes.
-  manifest: '/manifest.json?v=3',
+  manifest: '/manifest.json?v=4',
   icons: {
     icon: [
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
       { url: '/icon-512.png', sizes: '512x512', type: 'image/png' }
     ],
-    apple: [
-      { url: '/apple-touch-icon.png?v=3', sizes: '180x180', type: 'image/png' }
-    ]
+    apple: [{ url: ICON_180, sizes: '180x180', type: 'image/png' }]
   },
   appleWebApp: {
     capable: true,
@@ -51,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href={ICON_180} />
       </head>
       <body>
         <RegisterSW />
